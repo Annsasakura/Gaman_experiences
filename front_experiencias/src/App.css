@@ -1,0 +1,1604 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Bariol";
+}
+
+ul {
+  list-style: none;
+}
+
+html {
+  --oscuro: #40434d;
+  --tierra: #e07a5f;
+  --verdoso: #81b29a;
+  --vainilla: #f2cc8f;
+  --grisaceo: #d9d9d9;
+}
+
+a {
+  text-decoration: none;
+  color: var(---oscuro);
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+h2 {
+  font-size: 1.25rem;
+}
+
+h3 {
+  font-size: 1rem;
+}
+p {
+  font-size: 0.75rem;
+}
+
+/*--------------------- SEARCHBAR ----------------*/
+
+.formSearchBar {
+  width: 60%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.formSearchBar select {
+  font-size: 1rem;
+  height: 2.5rem;
+  width: 100%;
+  background-color: white;
+  border-color: var(--grisaceo);
+}
+
+.formSearchBar button {
+  background-image: url(/src/img/search.svg);
+  width: 100%;
+  height: 2rem;
+  background-repeat: no-repeat;
+  background-size: 10%;
+  background-position: center;
+  border: none;
+  border-radius: 4px;
+  background-color: var(--tierra);
+}
+
+.formSearchBar select option[value=""][disabled] {
+  display: none;
+}
+
+.formSearchBar select:first-child {
+  border-radius: 4px 4px 0 0;
+  border-bottom: none;
+  margin-top: 4rem;
+}
+
+.formSearchBar select:nth-child(2) {
+  margin-bottom: 0.4rem;
+  border-radius: 0 0 4px 4px;
+}
+
+.searchNav {
+  position: fixed;
+  width: 100%;
+  height: 3.5rem;
+  background-color: white;
+  z-index: 5;
+}
+
+.searchNav .nav-ui {
+  background-color: white;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10;
+  top: -100vh;
+  left: 0;
+  transition: 1.5s;
+  display: flex;
+  flex-direction: column;
+}
+
+.searchNav .nav-ui-toggle {
+  position: fixed;
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  z-index: 15;
+  outline: none;
+}
+
+.searchNav.open .nav-ui {
+  top: 0;
+}
+
+.loginSign {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.loginSign a {
+  color: var(--oscuro);
+  font-weight: 400;
+  font-size: 0.7rem;
+  padding: 0.5rem;
+  margin: 0.25rem;
+}
+
+.loginSign a:nth-child(2) {
+  border: 1px solid var(--oscuro);
+  border-radius: 40px;
+}
+
+.logoSearch {
+  background-image: url(/src/img/icono_gaman_logo.svg);
+  width: 2.5rem;
+  height: 2.5rem;
+  background-repeat: no-repeat;
+  background-size: 90%;
+  position: fixed;
+  top: 0.5rem;
+  right: 1rem;
+}
+
+/* ----------------------- HEADER ---------------------*/
+
+header {
+  background-image: url(/src/img/mainpage.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  min-height: 35vh;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-column-gap: 0.7rem;
+  margin-bottom: 1rem;
+}
+
+.headerMain {
+  grid-column: 4 / 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+header h1 {
+  font-weight: 800;
+  font-size: 2.5rem;
+  color: white;
+  line-height: 2.2rem;
+  margin-top: 1rem;
+}
+
+header p {
+  font-weight: 400;
+  font-size: 0.9rem;
+  color: white;
+  text-align: center;
+  display: none;
+}
+
+/*----------------------- MAIN --------------------------*/
+
+.populares,
+.emblematicos {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.populares h2,
+.emblematicos h2 {
+  font-size: 1.7rem;
+}
+
+.ulPopulares,
+.ulEmblematicos {
+  margin: 1.5rem 0 3rem 0;
+  text-align: center;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.ulPopulares::-webkit-scrollbar,
+.ulEmblematicos::-webkit-scrollbar {
+  display: none;
+}
+
+.ulEmblematicos img,
+.ulPopulares img {
+  max-width: 10rem;
+  border-radius: 1rem;
+}
+
+.ulPopulares img {
+  max-width: 10rem;
+  height: 10rem;
+  object-fit: cover;
+}
+.ulPopulares li,
+.ulEmblematicos li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 0.75rem;
+}
+
+.populares h2:first-child {
+  margin-top: 2rem;
+}
+
+.emblematicos {
+  margin-bottom: 3rem;
+}
+
+.ulPopulares li h3,
+.ulEmblematicos li h3 {
+  margin-top: 0.5rem;
+}
+/*----------------------- USER -------------------------*/
+
+/*---------------------- USER MENU ------------------*/
+
+.userMenu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding-top: 5rem;
+  margin-bottom: 1rem;
+}
+
+.userMenu img {
+  max-width: 8rem;
+  border-radius: 50%;
+}
+
+.userMenu li {
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+/*----------------------- USER DATA-------------------*/
+
+.us-body {
+  border: none;
+  font-size: 1.3rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  display: block;
+  float: right;
+  background-color: transparent;
+  outline: transparent;
+}
+
+.us-body-text {
+  margin-top: 3rem;
+}
+
+.us-body-sec {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.us-body-sec p {
+  background-color: var(--verdoso);
+  color: var(--oscuro);
+  height: 2.65rem;
+  padding-left: 0.5rem;
+  padding-top: 0.6rem;
+  border-radius: 4px;
+  margin-top: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.us-body-text section:last-child p {
+  height: 10rem;
+}
+
+.us-body-sec h3 {
+  font-size: 1.4rem;
+}
+
+/*-------------------- USER FORM --------------------*/
+
+.userBook-Rate form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  margin-top: 3rem;
+}
+
+.userBook-Rate form fieldset,
+.admin-form fieldset {
+  border: none;
+  margin-bottom: 1.5rem;
+}
+
+.userBook-Rate form fieldset label,
+.admin-form fieldset label {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.userBook-Rate form fieldset input,
+.admin-form fieldset input {
+  border: none;
+  background-color: var(--grisaceo);
+  margin-top: 0.5rem;
+  font-size: 1.2rem;
+  padding: 1.3rem 0 1.3rem 0.5rem;
+}
+
+.userBio {
+  display: flex;
+  flex-direction: column;
+}
+
+.userBio textarea,
+.admin-form textarea {
+  margin-top: 0.5rem;
+  border-radius: 4px;
+  min-width: 100%;
+  min-height: 3rem;
+  padding: 0.3rem;
+  background-color: var(--grisaceo);
+  border: none;
+  resize: vertical;
+}
+
+.userGenero {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+#file,
+#photo1,
+#photo2,
+#photo3,
+#photo4,
+#photo5 {
+  height: 0;
+  overflow: hidden;
+  width: 0;
+  padding: 0;
+}
+
+#file + label,
+#photo1 + label,
+#photo2 + label,
+#photo3 + label,
+#photo4 + label,
+#photo5 + label {
+  max-width: 100%;
+  background: var(--grisaceo);
+  border: none;
+  border-radius: 4px;
+  color: var(--oscuro);
+  cursor: pointer;
+  display: inline-block;
+
+  margin-bottom: 1rem;
+  outline: none;
+  padding: 0.5rem 1rem;
+  position: relative;
+  vertical-align: middle;
+}
+
+.userBook-Rate select {
+  margin: 0.5rem 0 1.5rem 0;
+  border: none;
+  background-color: var(--grisaceo);
+  padding: 0.5rem 0 0.5rem 0.3rem;
+  border-radius: 4px;
+  font-size: 1.2rem;
+}
+
+.userBook-Rate select option[value=""][disabled] {
+  display: none;
+}
+
+.userBook-Rate form button,
+.admin-form button {
+  font-size: 1.2rem;
+  font-weight: bold;
+  background-color: var(--tierra);
+  color: white;
+  width: 100%;
+  border: none;
+  border-radius: 4px;
+  padding: 0.6rem;
+  margin-bottom: 1rem;
+}
+
+/*---------- USER BOOKINGS/RATINGS----------*/
+.userBook-Rate {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.book-rate-data {
+  margin-top: 3rem;
+}
+
+.userBook-Rate .up-book-rate-data {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.7rem;
+  margin-top: 1.75rem;
+}
+
+.up-book-rate-data button {
+  height: 1.5rem;
+  padding: 0 0.4rem;
+  border: none;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.book-rate-data ul:first-of-type {
+  border-bottom: 1px solid var(--grisaceo);
+}
+
+.book-rate-data ul:last-of-type {
+  margin-bottom: 3rem;
+}
+
+.userBook-Rate .book-rate-data ul li {
+  margin-bottom: 1.5rem;
+}
+
+.userBook-Rate .book-rate-data img {
+  width: 100%;
+  height: 3rem;
+  object-fit: cover;
+  border-radius: 4px;
+}
+/*-------------- ACTIVITIES RESULTS ---------------*/
+.searchMain {
+  padding-top: 4rem;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.searchMain > ul {
+  margin-top: 1.5rem;
+  margin-bottom: 3rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(1rem, 10rem));
+  grid-gap: 1.5rem;
+  justify-content: center;
+}
+
+.searchMain ul li img {
+  max-width: 10rem;
+  height: 10rem;
+  object-fit: cover;
+  border-radius: 1rem;
+}
+
+.filtro {
+  margin-top: 1rem;
+}
+
+.filtro select {
+  background-color: white;
+  border: 1px solid lightgrey;
+  border-radius: 4px;
+  margin-right: 0.4rem;
+  height: 2rem;
+}
+
+.filtro select option[value=""][disabled] {
+  display: none;
+}
+
+.filtro > button {
+  border-radius: 4px;
+  border: none;
+  height: 2rem;
+  width: 3rem;
+}
+
+/*-------------------- ACTIVITY PAGE -----------------*/
+
+.activityBody {
+  padding-top: 6rem;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.activityBody h2 {
+  color: var(--oscuro);
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+.activityBody p {
+  color: var(--oscuro);
+  font-weight: normal;
+  margin-bottom: 1rem;
+}
+
+aside h3 {
+  color: var(--oscuro);
+  margin-bottom: 0.4rem;
+  font-weight: bold;
+}
+
+aside ul li ul {
+  background-color: var(--grisaceo);
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1rem;
+  margin-bottom: 0.2rem;
+}
+
+.liFecha {
+  background-color: var(--grisaceo);
+  border-radius: 4px;
+  padding: 1rem;
+  text-align: center;
+}
+
+aside button {
+  background-color: var(--tierra);
+  color: white;
+  width: 100%;
+  border: none;
+  border-radius: 4px;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+.ulPlazas {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1.5px solid var(--grisaceo);
+}
+
+.ulPlazas li {
+  width: 20%;
+  padding: 4px;
+}
+
+.ocupadas img,
+.libres img,
+.ratingAct li img {
+  width: 100%;
+  border-radius: 50%;
+  margin-bottom: 0.5rem;
+}
+
+.libres img {
+  border: 1px solid var(--grisaceo);
+}
+
+.ratingAct {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.ratingAct li {
+  display: flex;
+  padding: 4px;
+  margin-top: 0.7rem;
+  margin-right: 0.5rem;
+}
+
+.ratingAct li h3 {
+  font-weight: normal;
+}
+
+.ratingAct li img {
+  width: 3rem;
+  margin-right: 0.5rem;
+}
+
+/*--------- CONFIRMAR INSCRIPCION ---------*/
+
+.confirmContract {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+.confirmContract img {
+  width: 14rem;
+  margin: 0 auto;
+  margin-top: 1.5rem;
+}
+
+.confirmContract h2 {
+  text-align: center;
+  font-weight: bold;
+  font-size: 2rem;
+  margin: 1.5rem 0 0.4rem 0;
+}
+
+.confirmContract h3 {
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.3rem;
+  margin-bottom: 0.4rem;
+}
+
+.confirmContract p {
+  font-size: 1rem;
+  margin-bottom: 0.7rem;
+}
+
+.confirmContract li {
+  background-color: var(--verdoso);
+  border-radius: 4px;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 0.3rem;
+  padding: 0.5rem 0 0.5rem 0.3rem;
+}
+
+.linkconfirm {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.linkconfirm a {
+  width: 49%;
+  text-align: center;
+  background-color: var(--tierra);
+  color: white;
+  border-radius: 4px;
+  padding: 0.5rem 0;
+}
+
+/*-------------------------- ADMIN -----------------------*/
+.admin-body {
+  width: 90%;
+  margin: 0 auto;
+}
+.admin-act li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--grisaceo);
+  margin-bottom: 1.5rem;
+}
+
+.admin-act button {
+  background-color: transparent;
+  border: none;
+  font-size: 0.75rem;
+  margin-left: 0.2rem;
+}
+
+.admin-act a {
+  margin-right: 0.1rem;
+  font-size: 0.75rem;
+}
+
+.admin-body h2 {
+  margin-top: 3rem;
+}
+
+.admin-header {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 1rem;
+}
+
+.admin-header a {
+  border: 1px solid var(--oscuro);
+  padding: 0.35rem;
+  border-radius: 1.2rem;
+  margin-right: 0.5rem;
+}
+
+/*------------------------ REGISTRO ---------------------*/
+.registerForm fieldset,
+.loginForm fieldset {
+  border: none;
+  width: 80%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.registerForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.registerForm img {
+  display: none;
+}
+
+.registerForm label:not(.repeatPasswordRegister) {
+  margin: 0.7rem 0 0.1rem 0;
+}
+
+.registerForm label {
+  font-size: 0.8rem;
+  width: 90%;
+  align-self: start;
+}
+
+.registerForm p {
+  font-size: 0.6rem;
+  color: grey;
+  text-align: center;
+  width: 80%;
+  margin-top: 0.2rem;
+}
+
+.textRegistro {
+  text-align: justify !important;
+  text-align-last: center;
+}
+
+.textRegistro a {
+  font-size: 0.6rem;
+  color: var(--oscuro);
+}
+
+.registerForm h2 {
+  margin: 1.5rem 0 0.8rem 0;
+  font-weight: normal;
+  font-size: 2rem;
+}
+
+fieldset > input {
+  width: 100%;
+  height: 2rem;
+  border-radius: 4px;
+  border: 1px solid var(--oscuro);
+  font-size: 0.8rem;
+  padding: 0 0.6rem;
+}
+
+#validatePassword {
+  border-top: none;
+  border-radius: 0 0 4px 4px;
+}
+
+#password {
+  border-radius: 4px 4px 0 0;
+}
+
+.registerForm input:focus {
+  outline: none;
+  border: 1px solid var(--tierra);
+  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.05);
+}
+
+.registerForm input::-webkit-input-placeholder {
+  color: var(---grisaceo);
+}
+
+#submitRegister {
+  border: none;
+  background-color: var(--tierra);
+  color: white;
+}
+
+#submitRegister:active {
+  background-color: #ce4b27;
+}
+
+/*------------------------- LOGIN --------------------------*/
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.loginForm img {
+  width: 14rem;
+  margin-top: 2rem;
+}
+
+.loginForm h2 {
+  margin: 1.5rem 0 0.8rem 0;
+  font-weight: normal;
+  font-size: 2rem;
+}
+
+.loginForm p {
+  font-size: 0.6rem;
+  color: var(--grisaceo);
+  text-align: center;
+  width: 80%;
+  margin-top: 0.2rem;
+}
+
+.textLogin a {
+  font-size: 0.6rem;
+  color: var(--oscuro);
+}
+
+#passwordLogin {
+  border-radius: 0 0 4px 4px;
+  border-top: none;
+  margin-bottom: 1rem;
+}
+
+#emailLogin {
+  border-radius: 4px 4px 0 0;
+}
+.loginForm input:focus {
+  outline: none;
+  border: 1px solid var(--tierra);
+  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.05);
+}
+
+.loginForm input::-webkit-input-placeholder {
+  color: var(---grisaceo);
+}
+
+.loginForm .cancelLog,
+.registerForm .cancelLog {
+  background-color: var(--tierra);
+  font-size: 0.8rem;
+  text-align: center;
+  color: white;
+  border-radius: 4px;
+  width: 80%;
+  height: 2rem;
+  margin-top: 0.3rem;
+  padding-top: 0.4rem;
+}
+
+/*----------------------- FOOTER -----------------------*/
+.footer {
+  background-color: var(--oscuro);
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  width: 100%;
+}
+
+.footer a {
+  color: white;
+}
+
+.logos {
+  width: 30px;
+  height: 30px;
+}
+
+/* Parte Superir del Footer */
+
+.footerSup {
+  max-width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 0.5rem;
+}
+
+.footerSupIzq {
+  display: flex;
+  flex-direction: column;
+}
+
+.footerSupIzq h2 {
+  display: block;
+  color: var(--tierra);
+  margin-block-end: 1rem;
+  font-size: 2rem;
+}
+
+.footerSupIzq h3 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.footerSupIzq ul {
+  display: flex;
+  align-items: center;
+  padding-bottom: 0.5rem;
+}
+
+.footerSupIzq ul li.marginLeft {
+  margin-left: 1rem;
+}
+
+.enlacesFooter {
+  display: flex;
+  flex-direction: column;
+}
+
+.enlacesFooter ul {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+ul.ulCuenta li h3,
+ul.ulAcceso li h3,
+ul.ulAbout li h3 {
+  font-size: 1.1rem;
+  color: var(--tierra);
+}
+
+ul.ulCuenta,
+ul.ulAcceso,
+ul.ulAbout {
+  font-size: 0.9rem;
+  margin: 0.8rem 1rem 0 0;
+  padding-bottom: 1rem;
+}
+ul.ulCuenta,
+ul.ulAcceso {
+  border-bottom: 2px solid var(--tierra);
+}
+ul.ulCuenta li,
+ul.ulAcceso li,
+ul.ulAbout li {
+  margin-bottom: 0.3rem;
+}
+
+/* footer line */
+.sectionLineFooter {
+  max-width: 90%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-column-gap: 0.7rem;
+  margin-bottom: 1rem;
+}
+
+.lineFooterTop {
+  border: 1px solid var(--tierra);
+  grid-column: 1/13;
+}
+/* Parte Inferior del Footer*/
+
+.footerInf {
+  max-width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 1rem;
+  justify-content: space-between;
+}
+
+.gamanFooter {
+  width: 7rem;
+  height: auto;
+}
+
+.aFooter {
+  border-radius: 40px;
+  font-size: 0.8rem;
+  padding: 0.5rem 1rem;
+  background-color: var(--tierra);
+  display: inline-flex;
+  line-height: 26px;
+}
+.aFooter:active {
+  background-color: #ce4b27;
+}
+
+/*-------------------- TÉRMINOS ------------------*/
+
+.terminos {
+  padding-top: 5rem;
+  width: 90%;
+  margin: 0 auto;
+  margin-bottom: 2rem;
+}
+
+.terminos h2 {
+  font-size: 1.7rem;
+  margin-bottom: 0.8rem;
+}
+
+.terminos p {
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+/*------------------- VALIDATE --------------------*/
+
+.validate {
+  width: 70%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.validate h2 {
+  font-size: 1.7rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.validate p {
+  font-size: 1rem;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.validate button {
+  background-color: var(--tierra);
+  border: none;
+  padding: 0.5rem;
+  border-radius: 4px;
+}
+/************** Media queries **********************************/
+@media (min-width: 700px) {
+  * {
+    font-size: 18px;
+  }
+
+  /*------ HEADER ----------*/
+  .headerMain {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  header {
+    padding-top: 6rem;
+    padding-bottom: 1rem;
+    min-height: 45vh;
+  }
+
+  header h1 {
+    color: var(--tierra);
+    font-size: 3.7rem;
+    letter-spacing: 0.1rem;
+    line-height: 60px;
+    margin-bottom: 1rem;
+  }
+
+  header p {
+    font-weight: 400;
+    font-size: 1rem;
+    color: white;
+    text-align: center;
+    display: block;
+  }
+
+  /*------ SEARCH ----------*/
+  .formSearchBar {
+    flex-direction: row;
+    margin: 0;
+    width: auto;
+  }
+
+  .formSearchBar button {
+    width: 5.5rem;
+    height: 2.5rem;
+    background-size: 45%;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .formSearchBar select:first-child {
+    border: 1px solid var(--grisaceo);
+    border-radius: 4px 0 0px 4px;
+    margin-top: 0;
+  }
+
+  .formSearchBar select:nth-child(2) {
+    margin-bottom: 0;
+    border-radius: 0;
+    border-left: none;
+  }
+
+  .searchNav {
+    height: 5rem;
+  }
+
+  .searchNav .nav-ui {
+    position: static;
+    height: 5rem;
+    width: 90%;
+    margin: 0 auto;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .searchNav .nav-ui-toggle {
+    display: none;
+  }
+
+  .loginSign {
+    flex-direction: row;
+    margin: 0;
+    width: auto;
+    color: white;
+    border: none;
+  }
+  /*------ SEARCH ----------*/
+
+  .loginSign .loginSignSalir {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .loginSignIniciar {
+    transition-property: color, border, background-color;
+    transition-duration: 1.5s;
+    transition-timing-function: easy-in-out;
+  }
+
+  .loginSign .loginSignIniciar:hover {
+    color: white;
+    border: 1px solid var(--tierra);
+    background-color: var(--tierra);
+  }
+  .loginSignSalir {
+    transition-property: color, border, background-color;
+    transition-duration: 1.5s;
+    transition-timing-function: easy-in-out;
+  }
+
+  .loginSign .loginSignSalir:hover {
+    color: white;
+    border: 1px solid var(--tierra);
+    background-color: var(--tierra);
+  }
+
+  .loginSign a:not(a:last-child) {
+    transition-property: color;
+    transition-duration: 1.5s;
+    transition-timing-function: easy-in-out;
+  }
+  .loginSign a:first-child:hover {
+    color: var(--tierra);
+  }
+
+  .logoSearch {
+    background-image: url("/src/img/gaman_coral.png");
+    position: static;
+    width: 7.5rem;
+  }
+
+  /*---------- MAIN ----------*/
+
+  .populares,
+  .emblematicos {
+    width: 80%;
+  }
+
+  /*---------- USER -----------*/
+
+  .userBook-Rate {
+    width: 80%;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-column-gap: 1rem;
+    padding-top: 2rem;
+  }
+  .userMenu {
+    grid-column: 1 / 4;
+    display: flex;
+    flex-direction: column;
+    height: 23rem;
+  }
+
+  .book-rate-data {
+    grid-column: 5/13;
+    padding-top: 5rem;
+  }
+
+  .up-book-rate-data {
+    padding-top: 1.5rem;
+  }
+
+  /*------ ACTIVITY BODY -------*/
+  .activityBody {
+    width: 80%;
+  }
+
+  /*----- ACTIVITY PAGE--------*/
+
+  .activityBody {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 90%;
+    margin-bottom: 1.5rem;
+  }
+
+  .actMainBody {
+    max-width: 60%;
+    margin-right: 5%;
+    border-bottom: 1px solid var(--grisaceo);
+  }
+
+  aside {
+    max-width: 35%;
+    margin-top: 2rem;
+  }
+
+  aside ul li ul,
+  .liFecha {
+    padding: 0.5rem;
+  }
+
+  aside ul li ul li,
+  .liFecha {
+    font-size: 0.8rem;
+  }
+
+  aside button {
+    padding: 0.5rem;
+    margin: 1rem 0;
+  }
+
+  .ulPlazas {
+    border-bottom: none;
+  }
+
+  .ratingAct {
+    width: 60%;
+  }
+
+  .ratingAct li img {
+    width: 2.5rem;
+    margin-right: 0.5rem;
+  }
+
+  /*----ACTIVITIES RESULTS ---*/
+
+  .upSearch {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .searchMain {
+    padding-top: 6rem;
+    width: 80%;
+  }
+  .upSearch {
+    margin-bottom: 2rem;
+  }
+
+  .filtro {
+    margin-top: 3.3rem;
+  }
+  .upSearch h2 {
+    font-size: 2.5rem;
+    width: 40%;
+  }
+
+  /*----- CONFIRM CONTRACT-----*/
+
+  .confirmContract {
+    margin-top: 3rem;
+    width: 60%;
+  }
+
+  .confirmContract li {
+    margin-bottom: 0.6rem;
+  }
+
+  /*-----ADMIN-----*/
+  .admin-header a {
+    padding: 0.8rem;
+  }
+
+  /*-------- FOOTER ----------*/
+  .logos {
+    width: 30px;
+    height: 30px;
+  }
+
+  .enlacesFooter {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .enlacesFooter ul {
+    width: 100%;
+  }
+
+  ul.ulAbout {
+    width: 35%;
+    margin-right: 0;
+  }
+
+  ul.ulAcceso,
+  ul.ulCuenta {
+    border-bottom: none;
+  }
+
+  .aFooter {
+    line-height: 30px;
+  }
+
+  /*-------LOGIN REGISTER ------*/
+  .registerForm,
+  .loginForm {
+    width: 60%;
+    margin: 0 auto;
+    margin-top: 1rem;
+  }
+
+  .registerForm img {
+    display: block;
+    width: 14rem;
+    margin-top: 2rem;
+  }
+
+  /*----------- TERMINOS ----------*/
+
+  .terminos {
+    width: 80%;
+  }
+}
+
+/******** 1000px *************************************/
+@media (min-width: 1000px) {
+  * {
+    font-size: 25px;
+  }
+
+  /* ------- HEADER ----------*/
+  header {
+    min-height: 80vh;
+  }
+
+  header h1 {
+    font-size: 4rem;
+    line-height: 3.8rem;
+  }
+
+  /* ------- MAIN ----------*/
+
+  .populares h2,
+  .emblematicos h2 {
+    font-size: 1.75rem;
+  }
+
+  .ulPopulares li,
+  .ulEmblematicos li {
+    margin-right: 2rem;
+  }
+  /*----ACTIVITIES RESULTS ---*/
+  .searchMain h2 {
+    width: 40%;
+  }
+
+  /*-------- FOOTER ----------*/
+  .logos {
+    width: 44px;
+    height: 44px;
+  }
+
+  .aFooter {
+    padding-top: 0.5rem;
+    line-height: 40px;
+  }
+
+  ul.ulAbout {
+    width: 30%;
+  }
+}
+
+/****** 1600px *************************************************/
+@media (min-width: 1600px) {
+  * {
+    font-size: 28px;
+  }
+  header {
+    min-height: 80vh;
+  }
+  /*------- MAIN --------*/
+
+  .searchNav {
+    height: 3.5rem;
+  }
+
+  .searchNav .nav-ui {
+    height: 3.5rem;
+    width: 80%;
+  }
+
+  .formSearchBar {
+    width: 50%;
+  }
+
+  .populares,
+  .emblematicos {
+    width: 65%;
+    margin: 0 auto;
+  }
+  .ulPopulares li,
+  .ulEmblematicos li {
+    margin-right: 1rem;
+  }
+  .ulPopulares,
+  .ulEmblematicos {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: nowrap;
+    overflow-x: unset;
+  }
+  .populares h2,
+  .emblematicos h2 {
+    font-size: 2rem;
+  }
+
+  /*------ RESULTADOS -----*/
+
+  .searchMain {
+    width: 65%;
+  }
+
+  .searchMain > ul {
+    grid-gap: 1rem;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  /*----- ACTIVITY PAGE -----*/
+  .activityBody {
+    width: 65%;
+  }
+
+  .actMainBody {
+    width: 65%;
+    max-width: 65%;
+  }
+
+  aside {
+    width: 25%;
+  }
+
+  .ulPlazas li {
+    width: 25%;
+  }
+
+  .ratingAct {
+    width: 65%;
+    justify-content: space-between;
+  }
+
+  .confirmContract {
+    width: 35%;
+  }
+
+  /*-------- USER ----------*/
+
+  .userBook-Rate {
+    width: 65%;
+    margin-bottom: 1rem;
+  }
+
+  .userMenu {
+    grid-column: 1/3;
+  }
+
+  /*-------- ADMIN -------*/
+
+  .admin-body {
+    width: 65%;
+  }
+  /*----- LOGREG ---*/
+  .registerForm,
+  .loginForm {
+    width: 30%;
+  }
+
+  /*----- FOOTER --------*/
+
+  .footerSup {
+    max-width: 80%;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-column-gap: 0.7rem;
+    margin-bottom: 1rem;
+  }
+
+  .footerSupIzq {
+    grid-column: 1 / 7;
+  }
+  .enlacesFooter {
+    grid-column: 7/13;
+  }
+
+  .sectionLineFooter {
+    max-width: 80%;
+  }
+
+  .footerInf {
+    max-width: 80%;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-column-gap: 0.7rem;
+    margin-bottom: 1rem;
+  }
+  .divImgFooter {
+    grid-column: 1/3;
+  }
+  .aFooter {
+    width: 5.5rem;
+    grid-column: 12 / 13;
+    font-size: 0.8rem;
+    line-height: 1.5rem;
+  }
+
+  /*--------- TERMINOS -----------*/
+
+  .terminos {
+    width: 65%;
+  }
+}
+
+/******** 2300px ***********************************************/
+@media (min-width: 2300px) {
+  * {
+    font-size: 32px;
+  }
+  header {
+    min-height: 80vh;
+  }
+  /*------- MAIN --------*/
+
+  .searchNav .nav-ui,
+  .footerSup,
+  .sectionLineFooter,
+  .footerInf {
+    width: 70%;
+  }
+
+  .formSearchBar {
+    width: 55%;
+  }
+
+  .populares,
+  .emblematicos,
+  .searchMain,
+  .activityBody,
+  .userBook-Rate,
+  .admin-body,
+  .terminos {
+    width: 60%;
+  }
+
+  .populares h2,
+  .emblematicos h2 {
+    font-size: 2.3rem;
+  }
+
+  /*----- ACTIVITY PAGE -----*/
+
+  .confirmContract {
+    width: 35%;
+  }
+
+  /*-------- ADMIN -------*/
+
+  .registerForm,
+  .loginForm {
+    width: 30%;
+  }
+}
